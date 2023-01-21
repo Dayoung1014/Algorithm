@@ -1,1 +1,0 @@
-INDEX VERSION 1.131+/Users/dayoung/Documents/GitHub/Algorithm/.metadata/.plugins/org.eclipse.jdt.core
