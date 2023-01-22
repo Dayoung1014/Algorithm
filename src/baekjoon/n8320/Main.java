@@ -1,4 +1,4 @@
-package src.baekjoon.n8320;
+package baekjoon.n8320;
 
 public class Main {
 
