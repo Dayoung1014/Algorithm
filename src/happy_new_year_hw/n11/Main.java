@@ -36,6 +36,7 @@ public class Main {
 			}
 			System.out.println("#"+test_case+" "+cnt);
 		}
+		sc.close();
 	}
 	
 	static int right(char[][] map, int i, int j, int N) {

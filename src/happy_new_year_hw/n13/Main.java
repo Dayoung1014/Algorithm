@@ -51,7 +51,7 @@ public class Main {
 			}
 			
 			System.out.println("#"+test_case+" "+maxHeight);
-			
 		}
+		sc.close();
 	}
 }
