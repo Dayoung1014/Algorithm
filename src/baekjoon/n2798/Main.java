@@ -3,43 +3,74 @@ package baekjoon.n2798;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// 블랙잭
-//카드의  합이 21을 넘지 않는 한도 내에서 카드의 합을 최대한 크게 만들어야 함
-// 새로운 규칙 추가된 블랙잭
-// 각 카드에 양의 정수가 있음
-// 딜러가 N장의 카드를 숫자가 보이도록 둠
-// 딜러가 M을 외침
-// 플레이어가 제한된 시간 안에 N장 중 3장 골라서 
-// ->합이 M을 넘지 않으면서 최대한 가깝게
-// 이렇게 만드는 카드 3장의 합 출력
-
 public class Main {
-
+	static int N;
+	static int M;
+	static int result;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt(); //카드의 개수
-		int M = sc.nextInt(); 
-		int result = 0;
-		ArrayList<Integer> game = new ArrayList<>(); //3장 조합들
+		N = sc.nextInt(); //카드의 개수
+		M = sc.nextInt(); 
+		result = 0; // M을 넘지 않는 최대값
 		
 		int[] cards = new int[N];
 		for(int i=0; i<N; i++) { //카드 숫자 입력 받기
 			cards[i] = sc.nextInt();
 		}
 		
+		boolean[] visited = new boolean[N];
+		
+		combi(cards, visited, 0, 3);
+		System.out.println(result);
 
 	}
 	
-	//재귀 이용한 구현
-	/* depth는 현재 인덱스 0부터 시작
-	 * 현재 인덱스 뽑으면 visited[depth] = true / 뽑지 않으면 visited[depth] = false
+	// 재귀 이용한 조합
+	/* idx(현재 인덱스) : 0부터 시작
+	 * 현재 인덱스 뽑으면 visited[idx] = true / 뽑지 않으면 visited[idx] = false
 	 * 뽑은 경우와 뽑지 않은 경우 모두 다 봐야함
-	 * 그 전에 본 값들은 다시 보지 않도록 depth 1씩 증가
-	 * depth == n이 되면 모든 인덱스 다 본 것임(arr 끝에 도착 -> 더 이상 조합 만들 수 X) -> 재귀 종료
+	 * 그 전에 본 값들은 다시 보지 않도록 idx 1씩 증가
+	 * idx == n이 되면 모든 인덱스 다 본 것임(arr 끝에 도착 -> 더 이상 조합 만들 수 X) -> 재귀 종료
 	 * 
 	 * */
-	static void combi(int[] arr, boolean[] visited, int depth, int n, int r) {
+	
+	/*
+	 * arr : 대상 배열 
+	 * visited : 방문 배열 
+	 * idx : arr 방문 위치 
+	 * r : 남은 뽑을 개수
+	 * */
+	static void combi(int[] arr, boolean[] visited, int idx, int r) {
+		// r==0 뽑는거 완료 -> 뽑은거 출력 -> 반환
+		if(r==0) {
+			int sum = 0;
+			for(int i=0; i<N; i++) {
+				if(visited[i]) {
+					//System.out.print(arr[i]+" ");
+					sum+=arr[i];
+				}
+			}
+			if(sum<=M && sum>result) {
+				result = sum;
+			}
+			//System.out.println();
+			return;
+		}
 		
+		// idx == n이면 arr 다 본거니까 반환
+		if(idx == arr.length) {
+			return;
+		}
+		
+		// idx 방문 true
+		visited[idx] = true;
+		// 재귀 (idx+1, r-1)
+		combi(arr, visited, idx+1, r-1); //하나 방문했으니까 idx+1/r-1
+		
+		// idx 방문 false
+		visited[idx] = false; //반환 후에는 해당 idx false
+		// 재귀 (idx+1, r)
+		combi(arr, visited, idx+1, r); //반환 했으니까
 	}
 
 }
