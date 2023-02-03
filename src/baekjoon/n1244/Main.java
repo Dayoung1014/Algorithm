@@ -2,72 +2,67 @@ package baekjoon.n1244;
 
 import java.util.Scanner;
 
-/*
- * 스위치 번호 : 1~N(개수)
- * 스위치 상태 : 1(on) 0(off)
- * num = 학생들에게 1~N의 자연수를 하나씩 나눠줌
- * 남학생 : idx가 num의 배수이면 -> 상태 변경
- * 여학생 : idx==num인 곳을 중심으로 상태가 좌우 대칭인 가장 큰 구간 
- * 			-> idx 포함된 해당 구간 모두 상태 변경
+/* 스위치 N개 1~N번까지
+ * 1(켜져 있음) 0(꺼져 있음)
+ * 학생 몇 명에게 자연수 나눠주고 
  * 
- * 마지막에 스위치 상태 출력 
+ * 남학생 : 	받은 수의 배열인 것들의 상태를 변경
+ * 여학생 : 받은 수를 중심으로 좌우 대칭이 최대가 되는 구간 모두 변경
+ * 
+ * 스위치 마지막 상태 출력
  * */
 
 public class Main {
-	
-	//스위치 상태 변경 메소드
-	public static int change(int num) { 
-		if(num==0) {
-			return 1;
+	static int[] arr;
+	public static void change(int i) { //현재 위치의 스위치 변경
+		if(arr[i] == 0)  {
+			arr[i] = 1;
 		}
 		else {
-			return 0;
+			arr[i] = 0;
 		}
 	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt(); //스위치 개수
-		int[] onoff = new int[N+1];  // 인덱스 오류 방지 위해 onoff[0] 비움.
+		int N = sc.nextInt();
+		arr = new int[N+1]; //index 실수 방지 위해 1 크게 설정
 		
-		for(int i=1; i<N+1; i++) { //스위치 상태
-			onoff[i] = sc.nextInt();
+		for(int i=1; i<=N; i++) {
+			arr[i] = sc.nextInt();
 		}
 		
-		int students = sc.nextInt(); //학생 수
-		for(int i=0; i<students; i++) { 
-			int type = sc.nextInt(); //성별 : 1(남학생) 2(여학생)
-			int num = sc.nextInt(); //부여받은 자연수
+		int stu = sc.nextInt(); //학생수
+		for(int s=0; s<stu; s++ ) {
+			int sexual = sc.nextInt(); //1(남자) 2(여자)
+			int n = sc.nextInt(); //받은 수
 			
-			if(type == 1) { //남학생
-				for(int idx = 1; idx<N; idx++) {
-					if(idx%num == 0) {
-						onoff[idx] = change(onoff[idx]);
-					}
+			if(sexual == 1) { //남학생
+				for(int idx=n; idx<arr.length; idx=idx+n) {
+					change(idx);
 				}
 			}
-			else if(type == 2) { //여학생
-				onoff[num] = change(onoff[num]); //기준은 무조건 변경
-				for(int t=1; t<N/2; t++) { 
-					if(num-t>=1 && num+t<=N &&(onoff[num-t] == onoff[num+t])) {
-						onoff[num-t] = change(onoff[num-t]); 
-						onoff[num+t] = change(onoff[num+t]);
-					}
-					else {
-						break;
-					}
+			else {
+				int LR = 1;
+				change(n); //일단 해당 자리는 바꿔줌
+				while(n-LR >= 1 && n+LR<arr.length && arr[n-LR]==arr[n+LR] ) {
+					change(n-LR);
+					change(n+LR);
+					LR++;
 				}
 			}
 		}
 		
-		 // 인덱스 오류 방지 위해 비운 onoff[0] 제외하고 출력
-		// 한줄에 20개씩 출력
-		for(int idx = 1; idx<onoff.length; idx++) {
-			System.out.print(onoff[idx]+" ");
-			if(idx%20 == 0) {
+		int p=1;
+		while(p<arr.length) {
+			System.out.print(arr[p]+" ");
+			if(p%20 == 0) {
 				System.out.println();
 			}
+			p++;
 		}
 		
+
 	}
 
 }
