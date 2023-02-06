@@ -2,12 +2,10 @@ package swea.n1289;
 
 /*
  * 메모리 bit 중 하나를 골라 0인지 1인지 결정하면 해당 값이 메모리 끝까지 덮어씌워짐
- * 0100 -> 0110 하려했는데 0111 
- * 메모리 번호가 왼쪽부터 1
+ * ex) 0100 -> 0110 하려했는데 0111 (메모리 번호가 왼쪽부터 1)
  * 
  * 원래 상태가 주어질 때 초기화 상태(다 0으로 된 상태) 에서 
  * 원래 상태로 돌아가는데 최소 몇 번 고쳐야 하나
- * 
  * */
 
 import java.util.Scanner;
@@ -18,8 +16,7 @@ class Solution {
 	static int cnt; //최소 수정 횟수
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
-		int T;
-		T=sc.nextInt();
+		int T = sc.nextInt();
 		
 		for(int test_case = 1; test_case <= T; test_case++)
 		{
