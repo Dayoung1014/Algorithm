@@ -20,19 +20,17 @@ public class Combination {
 	
 	// 조합 with Array
 	// select : 뽑아서 저장 / arr : 뽑을 대상 / visited : arr에서의 방문 여부 / count : 뽑은 개수 / idx : arr에서의 인덱스
-	public static void combination2(int[] select, int[] arr, boolean[] visited, int count, int idx) { 
+	// 조합이기 때문에 visited 필요 없이 for 시작 인덱스를 다음 값으로 조정 
+	// 따라서 재귀 호출 시 시작 인덱스 부분을 현재 값 +1
+	public static void combination2(int[] select, int[] arr, int count, int idx) { 
 		if(count == select.length) {
 			System.out.println(Arrays.toString(select));
 			return;
 		}
 		
 		for(int i=idx; i<arr.length;i++) {
-			if(!visited[i]) { //방문하지 않았다면
-				visited[i] = true;
-				select[count] = arr[i];
-				combination2(select, arr, visited, count+1, i+1);
-				visited[i] = false;
-			}
+			select[count] = arr[i];
+			combination2(select, arr, count+1, i+1);
 		}
 	}
 
@@ -43,7 +41,7 @@ public class Combination {
 		combination1(new ArrayList<>(), new int[]{1, 2, 3}, 0, 2);
 		
 		System.out.println("Array를 이용하여 조합 구하기");
-		combination2(new int[2], new int[] {1,2,3}, new boolean[] {false, false, false}, 0, 0);
+		combination2(new int[2], new int[] {1,2,3}, 0, 0);
 	}
 
 }
