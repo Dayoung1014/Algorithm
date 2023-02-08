@@ -15,8 +15,7 @@ public class Permutation_repetition {
 	    for(int i = 0; i < arr.length; i++) {
 	        select.add(arr[i]);
 	        permutation_repetition1(select, arr, count - 1); // 뽑을 때 마다 count - 1
-	        select.remove(select.size() - 1)
-	        ; // 재귀 위해 마지막에 넣은 원소 제거 
+	        select.remove(select.size() - 1); // 재귀 위해 마지막에 넣은 원소 제거 
 	    }
 	}
 	
@@ -39,7 +38,6 @@ public class Permutation_repetition {
 		System.out.println("ArrayList를 이용하여 중복 순열 구하기");
 		permutation_repetition1(new ArrayList<>(), new int[]{1, 2, 3}, 2);
 		
-
 		System.out.println("Array를 이용하여 중복 순열 구하기");
 		permutation_repetition2(new int[2], new int[] {1, 2, 3}, 0);
 	}

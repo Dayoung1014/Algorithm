@@ -33,12 +33,9 @@ class Solution {
 		}
 		
 		for(int i=idx; i<kcal.length; i++) {
-
 				selectKcal[count] = kcal[i];
 				selectScore[count]= score[i];
 				com(selectScore, selectKcal, score, kcal, count+1, i+1);
-
-			
 		}
 	}
 	

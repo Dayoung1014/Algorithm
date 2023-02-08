@@ -18,24 +18,24 @@ import java.util.Stack;
  * */
 
 public class Main {
-	static Stack<Integer> one = new  Stack<>();
-	static Stack<Integer> two = new  Stack<>();
-	static Stack<Integer> three = new  Stack<>();
-	
-	public static void move(one, two, three) {
-		if(one.size()==0 && three.size())
-	}
-	
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		for(int i=N; i>0; i-- ) {
-			one.add(i);
-		}
-		
-		
-		
-		
-	}
+//	static Stack<Integer> one = new  Stack<>();
+//	static Stack<Integer> two = new  Stack<>();
+//	static Stack<Integer> three = new  Stack<>();
+//	
+//	public static void move(one, two, three) {
+//		if(one.size()==0 && three.size())
+//	}
+//	
+//	public static void main(String[] args) {
+//		Scanner sc = new Scanner(System.in);
+//		int N = sc.nextInt();
+//		for(int i=N; i>0; i-- ) {
+//			one.add(i);
+//		}
+//		
+//		
+//		
+//		
+//	}
 
 }
