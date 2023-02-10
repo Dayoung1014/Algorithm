@@ -18,8 +18,7 @@ import java.util.Scanner;
  * */
 
 
-
-public class Main {
+public class Main_bit {
 	public static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) {
 	
