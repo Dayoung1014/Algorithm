@@ -37,20 +37,27 @@ class Solution {
         		if(q>now) { // 꺼낸 문서보다 중요도가 높은 문서가 존재하면 꺼낸 문서를 맨뒤로 넣음 (큐)
         			queue.add(now);
         			idx.add(nowIdx);
-        			finish = false;
-        			break;
+        			//finish = false;
+        			//break;
+					continue breakout;
         		}
         	}
         	System.out.println(queue);
         	System.out.println(idx);
-        	if(finish) {
-        		answer++;
-        		System.out.println("answer : "+answer);
-        		System.out.println();
-        		if(nowIdx == location) {
-            		break breakout;
-            	}
-        	}
+			answer++;
+			System.out.println("answer : "+answer);
+			System.out.println();
+			if(nowIdx == location) {
+				break breakout;
+			}
+//        	if(finish) {
+//        		answer++;
+//        		System.out.println("answer : "+answer);
+//        		System.out.println();
+//        		if(nowIdx == location) {
+//            		break breakout;
+//            	}
+//        	}
         	
         }
         System.out.println(answer);
