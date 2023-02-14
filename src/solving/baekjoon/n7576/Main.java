@@ -22,19 +22,28 @@ public class Main {
 	static int N;
 	static int[][] map;
 	static int day = 0;
+	static int cnt0 = 0;
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int M = sc.nextInt(); //상자 가로 칸 수
-		int N = sc.nextInt(); //상자 세로 칸 수
+		M = sc.nextInt(); //상자 가로 칸 수
+		N = sc.nextInt(); //상자 세로 칸 수
 		map = new int[N][M];
 		for(int n=0; n<N; n++) {
 			for(int m=0; m<M; m++) {
 				map[n][m] = sc.nextInt();
+				if(map[n][m] == 0) cnt0++;
 			}
 		}
-		
-		bfs();
+		if(cnt0 != 0)  { //안익은 토마토가 존재할 경우에만
+			for(int n=0; n<N; n++) {
+				for(int m=0; m<M; m++) {
+					 System.out.print(map[n][m] + " ");
+				}
+				System.out.println();
+			}
+			bfs();
+		}
 		System.out.println(day);
 	}
 	static int[] dr = { 1, -1, 0, 0 };
@@ -58,7 +67,7 @@ public class Main {
 			}
 			System.out.println();
 		}
-		System.out.println();
+		System.out.println();System.out.println();
 		Queue<Point> Q = new LinkedList();
 		boolean[][] v = new boolean[N][M];
 		for (int r = 0; r < N; r++) {
@@ -71,16 +80,23 @@ public class Main {
 		}
 		while (!Q.isEmpty()) {
 			Point p = Q.poll();
-			map[p.r][p.c] = -0;
+			//
 			for (int d = 0; d < 4; d++) {
 				int nr = p.r + dr[d];
 				int nc = p.c + dc[d];
 				// 지도안에 있다면
-				if (nr >= 0 && nr < N && nc >= 0 && nc < M && !v[nr][nc] && map[nr][nc] == 0) {
-					v[nr][nc] = true;
-					Q.add(new Point(nr, nc, p.cnt + 1));
-					day = Math.min(day, p.cnt + 1);
+				if (nr >= 0 && nr < N && nc >= 0 && nc < M && !v[nr][nc]) {
+					if(map[nr][nc] == 0) { //익지 않은 토마토인 경우
+						v[nr][nc] = true;
+						Q.add(new Point(nr, nc, p.cnt + 1));
+						map[p.r][p.c] = 1;
+						day = Math.max(day, p.cnt + 1);
+					}
+					else if(map[nr][nc] == -1) {
+						return;
+					}
 				}
+				
 			}
 		}
 	}
