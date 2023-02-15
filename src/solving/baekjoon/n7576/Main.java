@@ -61,13 +61,13 @@ public class Main {
 	}
 
 	private static void bfs() {
-		for(int n=0; n<N; n++) {
-			for(int m=0; m<M; m++) {
-				 System.out.print(map[n][m] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println();System.out.println();
+//		for(int n=0; n<N; n++) {
+//			for(int m=0; m<M; m++) {
+//				 System.out.print(map[n][m] + " ");
+//			}
+//			System.out.println();
+//		}
+//		System.out.println();System.out.println();
 		Queue<Point> Q = new LinkedList();
 		boolean[][] v = new boolean[N][M];
 		for (int r = 0; r < N; r++) {
