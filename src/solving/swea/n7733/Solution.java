@@ -33,6 +33,7 @@ class Solution {
 	static int[][] cheese;
 	static boolean[][] visited;
 	static int count;
+	static int[][] copyArr;
 	public static void main(String args[]) throws Exception {
 	
 		Scanner sc = new Scanner(System.in);
@@ -50,37 +51,38 @@ class Solution {
 					cheese[i][j] = sc.nextInt();
 				}
 			}
-			
-		
-			// 100일 동안 치즈 먹기 (먹은 칸은 0으로 변경)
-			for(int day=1; day<=100; day++) {
-				int exist=0;
-				
-				for(int i=0; i<N; i++) {
+
+			for(int day=0; day<=100; day++) {// 100일 동안 치즈 먹기
+				for(int i=0; i<N; i++) { //먹은 칸은 0으로 변경
 					for(int j=0; j<N; j++) {
 						if(cheese[i][j] == day) {
 							cheese[i][j] = 0;
-							exist++;
+							//exist++;
 						}
 					}
 				}
-				if(exist!=0) { 
-					visited = new boolean[N][N];
-					//하루씩 지날 때 bfs 호출
-					int cnt = 0;
-					for(int i=0; i<N; i++) {
-						for(int j=0; j<N; j++) {
-							if(cheese[i][j] !=0 &&  !visited[i][j]) {
-								cnt++;
-								bfs(i, j);
-								
-							}
+
+				copyArr = new int[N][N];
+				for(int i=0; i<N; i++) {
+					for(int j=0; j<N; j++) {
+						copyArr[i][j] = cheese[i][j];
+					}
+				}
+
+
+				int cnt = 0; // 덩어리 수
+				//하루씩 지날 때 bfs 호출
+				for(int i=0; i<N; i++) {
+					for(int j=0; j<N; j++) {
+						if(copyArr[i][j] !=0) {
+							visited = new boolean[N][N]; //방문 여부
+							cnt++;
+							bfs(i, j);
 						}
 					}
-					System.out.println("day "+day+" / "+cnt );
-					if(count < cnt) count = cnt;
 				}
-				
+
+				if(count < cnt) count = cnt;
 			}
 			
 			System.out.println("#"+test_case+" "+count);
@@ -92,9 +94,7 @@ class Solution {
 
 	static class Point {
 		int r, c;
-
 		public Point(int r, int c) {
-			super();
 			this.r = r;
 			this.c = c;
 		}
@@ -102,6 +102,7 @@ class Solution {
 
 	private static void bfs(int r, int c) {
 		Queue<Point> Q = new LinkedList();
+		copyArr[r][c] = 0;
 		visited[r][c] = true;
 
 		Q.offer(new Point(r, c));
@@ -111,14 +112,16 @@ class Solution {
 			for (int d = 0; d < 4; d++) {
 				int nr = p.r + dr[d];
 				int nc = p.c + dc[d];
-				
-				if (nr >= 0 && nr < N && nc >= 0 && nc < N && !visited[nr][nc] && cheese[nr][nc] != 0) {
+
+				if (nr >= 0 && nr < N && nc >= 0 && nc < N && !visited[nr][nc] && copyArr[nr][nc] != 0) {
+					copyArr[nr][nc] = 0;
 					visited[nr][nc] = true;
 					Q.add(new Point(nr, nc));
 				}
 			}
 		}
 	}
-	
+
+
 	
 }

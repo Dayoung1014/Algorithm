@@ -17,6 +17,8 @@ import java.util.Scanner;
  * -1 : 들어있지 않은 칸
  * */
 
+// 틀린 코드입니다.
+
 public class Main {
 	static int M;
 	static int N;

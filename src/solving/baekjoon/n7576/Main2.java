@@ -16,6 +16,8 @@ import java.util.Scanner;
  * -1 : 들어있지 않은 칸
  * */
 
+// 정답 코드
+
 public class Main2 {
 	static class Tomato {
 		int r, c;
