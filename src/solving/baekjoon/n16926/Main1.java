@@ -2,7 +2,7 @@ package solving.baekjoon.n16926;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main1 {
     static int[][] arr;
     static int[] d1 = {1, 0, -1, 0}; //상하
     static int[] d2= {0, 1, 0, -1}; //좌우

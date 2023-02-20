@@ -3,6 +3,7 @@ package solving.baekjoon.n16926;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /*
@@ -43,9 +44,10 @@ public class Main2 {
 		int[][] arr = new int[N][M];
 		
 		for(int i=0; i<N; i++) {
-			for(int j=0; i<M; j++) {
-				
-			} 
+			st = new StringTokenizer(br.readLine());
+			for(int j=0; j<4; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
 		}
 		
 		int x = 0; int y = 0;
@@ -53,27 +55,72 @@ public class Main2 {
 		int height = N; //4
 		int width = M; //5
 		
-		// 맨 윗줄 
-		for(int i=0; i<width; i++) { 
-			System.out.println(arr[i][y]);
-		}
-		
-		// 맨 왼쪽줄
-		for(int i=0; i<width; i++) { 
-			System.out.println(arr[x][i]);
-		}
-		
-		// 맨 오른쪽줄
-		for(int i=0; i<width; i++) { 
-			System.out.println(arr[i][M-1 -y]);
-		}
-		
-		
-		// 맨 아랫줄
-		for(int i=0; i<width; i++) { 
-			System.out.println(arr[N-1 - x][i]);
-		}
+		for(int r=0; r<R; r++) {
+			int tmp[][] = new int[N][M];
+			for(int i=0; i<N; i++) { 
+				tmp[i] = arr[i].clone();
+			}
+			
+			// 위
+			for(int i=0; i<width; i++) { 
+				//System.out.print(arr[x][i]+" ");
+				int nextX = x;
+				int nextY = i-1;
+				if(nextY>= 0) {
+					tmp[nextX][nextY] = arr[x][i]; 
+				}
+				else {
+					tmp[x+1][i] = arr[x][i]; 
+				}
+			}
+			
+			// 왼쪽
+			for(int i=0; i<width; i++) { 
+				int nextX = i+1;
+				int nextY = y;
+				if(nextX < N) {
+					tmp[nextX][nextY] = arr[i][y]; 
+				}
+				else {
+					tmp[i][y+1] = arr[i][y]; 
+				}
+			}
+			
+			// 아래
+			for(int i=0; i<width; i++) { 
+				int nowX = i;
+				int nowY = y+1;
+				if(nowY < N) {
+					tmp[nowX][nowY] = arr[x][i]; 
+				}
+				else {
+					tmp[x-1][i] = arr[x][i]; 
+				}
+			}
+			// 오른쪽
+			for(int i=0; i<width; i++) { 
+				int nowX = i-1;
+				int nowY = y;
+				if(nowX < N) {
+					tmp[i][nowY] = arr[i][y]; 
+				}
+				else {
+					tmp[i][y-1] = arr[i][y]; 
+				}
+			}
+			
+			arr = new int[N][M];
+			for(int i=0; i<N; i++) { 
+				arr[i] = tmp[i].clone();
+				System.out.println(Arrays.toString(arr[i]));
+			}
+			System.out.println();
+			}
 
-	}
+		}
+		
+
+
+	
 
 }

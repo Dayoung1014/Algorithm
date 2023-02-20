@@ -1,4 +1,4 @@
-package algorithm.permutation_combination_subset;
+package algorithm.BFS_DFS;
 
 import java.util.LinkedList;
 import java.util.Queue;
