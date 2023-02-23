@@ -59,7 +59,7 @@ class Solution {
 			for(int i=0; i<4; i++) {
 				int nx = x+dx[i];
 				int ny = y+dy[i];
-				if(arr[i]==min) q.offer(new Point(nx, ny, map[nx][]));
+				//if(arr[i]==min) q.offer(new Point(nx, ny, map[nx][]));
 				break;
 			}
 			

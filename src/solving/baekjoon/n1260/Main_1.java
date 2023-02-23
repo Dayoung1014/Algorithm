@@ -1,14 +1,12 @@
 package solving.baekjoon.n1260;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.beans.Visibility;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.sql.Connection;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 /*
  * 그래프 DFS BFS 탐색
@@ -16,26 +14,18 @@ import java.util.*;
  * 방문할 수 있는 정점이 여러개인 경우 정점 번호가 작은 것을 먼저 방문
  * 
  * */
-class Node implements Comparable<Node> {
-	int vertex;
-	Node link;
-	public Node(int vertex, Node node) {
-		super();
-		this.vertex = vertex;
-		this.link = node;
+
+
+class Main_1 {
+	static class Node {
+		int vertex;
+		Node link;
+		public Node(int vertex, Node node) {
+			super();
+			this.vertex = vertex;
+			this.link = node;
+		}
 	}
-
-	public int getVertex() {
-		return vertex;
-	}
-
-	public int compareTo(@NotNull Node o) {
-		return o.getVertex()-getVertex();
-	}
-}
-
-class Main {
-
 	
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
@@ -48,7 +38,7 @@ class Main {
 		N = Integer.parseInt(st.nextToken()); //정점의 개수
 		M = Integer.parseInt(st.nextToken());  //간선의 개수
 		V = Integer.parseInt(st.nextToken()); //탐색을 시작할 정점 번호
-
+		
 		graph = new Node[N+1]; //간선이 연결하는 두 정점의 번호들
 		int from, to;
 		
@@ -60,12 +50,11 @@ class Main {
 			graph[from] = new Node(to, graph[from]);
 			graph[to] = new Node(to, graph[to]);
 
-			for(int i=0; i<graph.length; i++) {
-				Collections.sort(graph[from]);
-			}
+			//Collections.sort(graph[from]);
 		}
+		
 
-
+		
 		bfs(V);
 	}
 	
@@ -95,6 +84,6 @@ class Main {
 		}
 		
 	}
-
+	
 }
 
