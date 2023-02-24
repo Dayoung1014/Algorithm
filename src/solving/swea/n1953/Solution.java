@@ -7,14 +7,15 @@ package solving.swea.n1953;
 *
 * 탈주범이 있을 수 있는 위치의 개수 계산
 *
-* 1 : 상하좌우
+*현재 / 불가능한 것들 
+* 1 : 상하좌우 / 
 * 2 : 상하
 * 3 : 좌우
 * 4 : 상우
 * 5 : 하우
 * 6 : 하좌
 * 7 : 상좌
-*
+* 
 *
 * */
 
@@ -48,32 +49,37 @@ class Solution {
 		int nc = c + dc[d];
 
 		if(nr>=0 && nc>=0 && nr<N && nc<M) {
-			if(map[nr][nc]==0) {
-				if(!last[r][c]) {
+			if(map[nr][nc]==0) { //다음이 0이면 
+				if(!last[r][c]) { //현재 자리에서 끝
 					last[r][c] = true;
-					result++;
 				}
 				return;
 			}
 			else {
+				if(!last[nr][nc]) { //현재 자리에서 끝
+					last[nr][nc] = true;
+				}
 				dfs(nr, nc, time+1);
-				//v[nr][nc] = false;
 			}
-
 		}
-
 	}
 
 	static void dfs(int r, int c, int time) {
 		//System.out.println("r "+r+" / c "+c);
 		int type = map[r][c];
-		if(time == L || r==0 || r==N || c==0 || c==M) {
+		if(time == L ) { // || r==0 || r==N-1 || c==0 || c==M-1
 			//System.out.println("끝");
 			if(!last[r][c]) {
 				last[r][c] = true;
 				result++;
 			}
 			return;
+		}
+		else if(r==0 || r==N-1 || c==0 || c==M-1) {
+			if(!last[r][c]) {
+				last[r][c] = true;
+				result++;
+			}
 		}
 
 		//v[r][c] = true;
@@ -90,7 +96,9 @@ class Solution {
 				move(r, c, 1, time);
 				break;
 			case 3: //좌우
+				//System.out.println(3+" : "+ r+" /  "+c);
 				move(r, c, 2, time);
+				//System.out.println(3+" : "+ r+" /  "+c);
 				move(r, c, 3, time);
 				break;
 			case 4: //상우
@@ -137,19 +145,19 @@ class Solution {
 			}
 
 			result = 0;
-			//q = new LinkedList<>();
 			last[R][C] = true;
 			result++;
 			dfs(R, C, 1); //맨홀 위치에서 시작
 			//bfs();
+			int cnt=0;
 			for(int n=0; n<N; n++) {
 				for(int m=0; m<M; m++) {
-					System.out.print(last[n][m] + " ");
-
+					//System.out.print(last[n][m] + " ");
+					if(last[n][m]) cnt++;
 				}
-				System.out.println();
+				//System.out.println();
 			}
-			System.out.println("#"+test_case+" "+result);
+			System.out.println("#"+test_case+" "+cnt);
 		}
 	}
 }
