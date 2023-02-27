@@ -1,4 +1,4 @@
-package solving.baekjoon.n13300;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
@@ -20,7 +20,7 @@ import java.util.Scanner;
  * 
  * */
 
-public class Main {
+public class Main_13300_방배정 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package solving.baekjoon.n15649;
+package solving.baekjoon;
 
 
 /*
@@ -7,7 +7,7 @@ package solving.baekjoon.n15649;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main_15649_N과M_1_arr {
 	static int[] output; // 뽑아서 저장하는 곳
 	static boolean [] visited ; // 1~N의 방문 여부
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package solving.baekjoon.n1260;
+package solving.baekjoon;
 
 
 import java.io.BufferedReader;
@@ -29,7 +29,7 @@ class Node   {
 
 
 
-class Main implements  Comparator<Node>{
+class Ing_Main_1260_DFS와BFS implements  Comparator<Node>{
 
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));

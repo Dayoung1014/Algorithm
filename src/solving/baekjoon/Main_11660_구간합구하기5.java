@@ -1,4 +1,4 @@
-package solving.baekjoon.n11660;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 행, 열 번호가 1부터 시작함에 주의
  * */
 
-public class Main {
+public class Main_11660_구간합구하기5 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

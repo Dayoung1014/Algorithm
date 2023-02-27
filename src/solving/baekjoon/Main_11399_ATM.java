@@ -1,4 +1,4 @@
-package solving.baekjoon.n11399;
+package solving.baekjoon;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * 총합
  * */
 
-public class Main {
+public class Main_11399_ATM {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

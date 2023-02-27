@@ -1,4 +1,4 @@
-package solving.baekjoon.n1244;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * 스위치 마지막 상태 출력
  * */
 
-public class Main {
+public class Main_1244_스위치켜고끄기 {
 	static int[] arr;
 	public static void change(int i) { //현재 위치의 스위치 변경
 		if(arr[i] == 0)  {

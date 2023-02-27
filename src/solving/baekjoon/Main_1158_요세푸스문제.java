@@ -1,9 +1,9 @@
-package solving.baekjoon.n1158;
+package solving.baekjoon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main_1158_요세푸스문제 {
 	
 
 	public static void main(String[] args) {

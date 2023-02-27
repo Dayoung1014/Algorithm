@@ -1,4 +1,4 @@
-package solving.baekjoon.n11659;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 누적합 j 번째 - 누적합 i-1 번째
  * */
 
-public class Main {
+public class Main_11659_구간합구하기4 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

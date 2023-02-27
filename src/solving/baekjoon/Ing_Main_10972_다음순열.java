@@ -1,8 +1,8 @@
-package solving.baekjoon.n10972;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
-public class Main {
+public class Ing_Main_10972_다음순열 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();

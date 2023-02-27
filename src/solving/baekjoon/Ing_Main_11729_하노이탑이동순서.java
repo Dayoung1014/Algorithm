@@ -1,4 +1,4 @@
-package solving.baekjoon.n11729;
+package solving.baekjoon;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -17,7 +17,7 @@ import java.util.Stack;
  * 이동 과정 a번째 맨 위 -> b번째 맨 위
  * */
 
-public class Main {
+public class Ing_Main_11729_하노이탑이동순서 {
 
 
 }

@@ -1,4 +1,4 @@
-package solving.baekjoon.n12891;
+package solving.baekjoon;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * 
  * */
 
-public class Main {
+public class Main_12891_DNA비밀번호 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int s = sc.nextInt(); //전체 문자열 길이

@@ -24,7 +24,7 @@ import java.util.StringTokenizer;
  * map배열을 해당 섬 길이로 변경 
  * */
 
-public class Ing_Main_다리만들기2 {
+public class Main_다리만들기 {
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;

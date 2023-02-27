@@ -1,4 +1,4 @@
-package solving.baekjoon.n15649;
+package solving.baekjoon;
 
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-public class Main2 {
+public class Main_15649_N과M_1_list {
 	static ArrayList<Integer> select = new ArrayList<>(); // 뽑아서 저장하는 곳
 	static int M;
 	static int N;
