@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 
-class Solution {
+class Solution_KRUSKAL {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int V, E;

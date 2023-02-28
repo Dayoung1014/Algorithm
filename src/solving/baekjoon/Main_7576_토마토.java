@@ -1,5 +1,6 @@
 package solving.baekjoon;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ import java.util.Scanner;
 
 // 정답 코드
 
-public class Main_토마토 {
+public class Main_7576_토마토 {
 	static class Tomato {
 		int r, c;
 
@@ -48,6 +49,10 @@ public class Main_토마토 {
 		}
 		
 		System.out.println(bfs());
+		for(int n=0; n<N; n++) {
+			System.out.println(Arrays.toString(map[n]));
+		}
+		
 	}
 	static int[] dr = { 1, -1, 0, 0 };
 	static int[] dc = { 0, 0, 1, -1 };
