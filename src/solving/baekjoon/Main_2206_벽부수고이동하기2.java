@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
  * 최단 거리 구하기 (시작, 끝 칸 포함해서)
  * */
 
-public class Main_2206_벽부수고이동하기 {
+public class Main_2206_벽부수고이동하기2 {
 	static int N, M; 
 	static int[][] map;
 	static int[] dr = {-1, 1, 0, 0}; //상하좌우
@@ -30,58 +30,50 @@ public class Main_2206_벽부수고이동하기 {
 	static class Point {
 		int r, c, cnt;
 		boolean breakOne;
-		boolean[][] v;
-		public Point(int r, int c, int cnt, boolean breakOne, boolean[][] v) {
+		public Point(int r, int c, int cnt, boolean breakOne) {
 			super();
 			this.r = r;
 			this.c = c;
 			this.cnt = cnt;
 			this.breakOne = breakOne;
-			this.v = v;
 		}
 		
 		
 	}
 	
-	static boolean[][] visit;
-	
-	
 	private static void bfs() {
 		Queue<Point> q = new LinkedList<>();
-		//boolean[][] v = new boolean[N][M];
-		//v[0][0] = true;
-		q.offer(new Point(0,0,1, false, new boolean[N][M]));
+		boolean[][][] v = new boolean[N][M][2]; //부수지 않음 / 부숨
+		q.offer(new Point(0,0,1, false));
 
 		while(!q.isEmpty()) {
 			Point p = q.poll();
-			p.v[p.r][p.c] = true;
-			System.out.println();
-			for(int n=0; n<N; n++) {
-				System.out.println(Arrays.toString(p.v[n]));
+			if(p.r == N-1 && p.c == M-1) {
+				result = p.cnt;
+				return;
 			}
-			
 			
 			for(int d=0; d<4; d++) { //상하좌우	
 				int nr = p.r+dr[d];
 				int nc = p.c+dc[d];
-				if(nr==N-1 && nc==M-1) {
-					result = Math.min(result, p.cnt+1);
-				}
+
 				if(nr<0 || nc<0 || nr>=N || nc>=M) continue;
-				if(p.v[nr][nc]) continue;
+				
 				if(map[nr][nc] == 0) { // 벽이 아닌경우
-					//p.v[nr][nc] = true;
-					q.offer(new Point(nr, nc, p.cnt+1, p.breakOne, p.v));
-					System.out.print("길 ");
-					System.out.println(p.r+" "+p.c+" -> "+nr + " "+ nc + " "+p.breakOne + " "+(p.cnt+1));
+					
+					if(p.breakOne) { //벽 부순적 있는 경우
+						v[nr][nc][0] = true;
+						q.offer(new Point(nr, nc, p.cnt+1, true));
+					}
+					else { //벽 부순적 없는 경우
+						v[nr][nc][1] = true;
+						q.offer(new Point(nr, nc, p.cnt+1, false));
+					}
 				}
-				else if (!p.breakOne){ // 벽이지만 부수는 기회가 있는 경우
-					//p.v[nr][nc] = true;
-					q.offer(new Point(nr, nc, p.cnt+1, true, p.v));
-					System.out.print("벽부숨 ");
-					System.out.println(p.r+" "+p.c+" -> "+nr + " "+ nc + " "+true + " "+(p.cnt+1));
+				else if (!p.breakOne){ // 벽이지만 부술 수 있는 경우
+					q.offer(new Point(nr, nc, p.cnt+1, true));
+					v[nr][nc][1] = true;
 				}
-				else System.out.println("안넣고 나감 " + nr + " " +nc);
 	
 			}
 		}

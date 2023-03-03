@@ -4,24 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Combination {
-	// 조합 with ArrayList
 	public static void combination1(ArrayList<Integer> select, int[] arr, int index, int count) { //뽑아서 저장, 뽑을 대상, 시작 위치, 뽑을 개수
-	    if (count == 0) { // 다 뽑았을 때
+	    if (count == 0) { 	  // 다 뽑았을 때
 	        System.out.println(select);
 	        return;
 	    }
 
 	    for(int i = index; i < arr.length; i++) {
 	        select.add(arr[i]);
-	        combination1(select, arr, i + 1, count - 1); // 뽑을 때 마다 count - 1
+	        combination1(select, arr, i,count - 1); // 뽑을 때 마다 count - 1
 	        select.remove(select.size() - 1); // 재귀 위해 마지막에 넣은 원소 제거 
 	    }
 	}
 	
-	// 조합 with Array
-	// select : 뽑아서 저장 / arr : 뽑을 대상 / visited : arr에서의 방문 여부 / count : 뽑은 개수 / idx : arr에서의 인덱스
-	// 조합이기 때문에 visited 필요 없이 for 시작 인덱스를 다음 값으로 조정 
-	// 따라서 재귀 호출 시 시작 인덱스 부분을 현재 값 +1
 	public static void combination2(int[] select, int[] arr, int count, int idx) { 
 		if(count == select.length) {
 			System.out.println(Arrays.toString(select));
