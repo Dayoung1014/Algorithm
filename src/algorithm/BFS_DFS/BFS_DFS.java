@@ -5,16 +5,17 @@ import java.util.Queue;
 import java.util.Stack;
 
 
+
 public class BFS_DFS {
-	static int n;
-	static int m;
+	static int N;
+	static int M;
 	static int[][] map;
 	static boolean[][] visited ;
 	static int[] dr = {-1, 1, 0, 0}; //상하좌우
 	static int[] dc = {0, 0, -1, 1};
 	
-	static class Point {
-		int r, c;
+	static class Point{
+		int r,c;
 
 		public Point(int r, int c) {
 			super();
@@ -35,17 +36,29 @@ public class BFS_DFS {
 				int nr = p.r+dr[i];
 				int nc = p.c+dc[i];
 				
-				if(nr<0 || nr>=n || nc<0 || nc>=m) continue;
+				if(nr<0 || nr>=N || nc<0 || nc>=M) continue;
 				if(visited[nr][nc] || map[nr][nc]==0) continue;
 				visited[nr][nc] = true;
 				q.add(new Point(nr, nc));
 
 			}
 		}
-		
 	}
 	
-	static void dfs(int r, int c) {
+	static void dfs_curr(int r, int c) {
+		visited[r][c] = true;
+		
+		for(int i=0; i<4; i++) {
+			int nr = r+dr[i];
+			int nc = c+dc[i];
+			
+			if(nr<0 || nr>=N || nc<0 || nc>=M) continue;
+			if(visited[nr][nc]) continue; // 문제 조건 추가
+			dfs_curr(nr, nc);
+		}
+	}
+	
+	static void dfs_stack(int r, int c) {
 		Stack<Point> stack = new Stack<>();
 		visited[r][c] = true;
 		stack.add(new Point(r, c));
@@ -57,13 +70,12 @@ public class BFS_DFS {
 				int nr = p.r+dr[i];
 				int nc = p.c+dc[i];
 				
-				if(nr<0 || nr>=n || nc<0 || nc>=m) continue;
-				if(visited[nr][nc] || map[nr][nc]==0) continue;
+				if(nr<0 || nr>=N || nc<0 || nc>=M) continue;
+				if(visited[nr][nc]) continue; // 문제 조건 추가
 				visited[nr][nc] = true;
 				stack.add(new Point(nr, nc));
 			}
 		}
-		
 	}
 	
 }
