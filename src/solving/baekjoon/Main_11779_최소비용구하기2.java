@@ -1,6 +1,4 @@
 package solving.baekjoon;
-
-<<<<<<< HEAD
 /*
 * n개의 도시
 * 도시를 이동하는 m개의 버스
@@ -10,10 +8,7 @@ package solving.baekjoon;
 * 다익스트라
 * */
 
-import org.jetbrains.annotations.NotNull;
 
-=======
->>>>>>> 72208a7731023df4531ca35fd4355b3da3391226
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -112,8 +107,4 @@ public class Main_11779_최소비용구하기2 {
             System.out.print(stack.pop() + " ");
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 72208a7731023df4531ca35fd4355b3da3391226
