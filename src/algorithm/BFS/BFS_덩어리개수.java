@@ -20,6 +20,8 @@ public class BFS_덩어리개수 {
 	static int[] dr = { 1, -1, 0, 0 };
 	static int[] dc = { 0, 0, 1, -1 };
 
+	static boolean[][] checked; //원본 변경 없이 갯수 세기 위해 static boolean 배열 사용
+	
 	static class Point {
 		int r, c;
 
@@ -46,10 +48,12 @@ public class BFS_덩어리개수 {
 		}
 		
 		int cnt = 0;
+		checked = new boolean[N][M];
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
-				if (map[i][j] == 1) {
+				if (map[i][j] == 1 && !checked[i][j] ) {
 					cnt++;
+					//checked[i][j] = true;
 					bfs(i, j);
 				}
 			}
@@ -60,20 +64,20 @@ public class BFS_덩어리개수 {
 	
 	private static void bfs(int r, int c) {
 		Queue<Point> Q = new LinkedList();
-		boolean[][] v = new boolean[N][M];
+		//boolean[][] v = new boolean[N][M];
 		
-		v[r][c] = true;
+		checked[r][c] = true;
 		Q.offer(new Point(r, c));
 
 		while (!Q.isEmpty()) {
 			Point p = Q.poll();
-			map[p.r][p.c] = 0; //확인 후 다른 것으로 변경
+			//map[p.r][p.c] = 0; //확인 후 다른 것으로 변경
 			for (int d = 0; d < 4; d++) {
 				int nr = p.r + dr[d];
 				int nc = p.c + dc[d];
 				if(nr<0 || nc<0 || nr>=N || nc>=M) continue;
-				if (v[nr][nc] || map[nr][nc] == 0) continue;
-				v[nr][nc] = true;
+				if (checked[nr][nc] || map[nr][nc] == 0) continue;
+				checked[nr][nc] = true;
 				Q.add(new Point(nr, nc));
 			}
 		}
