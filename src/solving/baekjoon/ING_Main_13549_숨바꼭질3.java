@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
  * 수빈이가 동생을 찾을 수 있는 가장 빠른 시간 몇 초인가?
  * */
 
-public class Main_13549_숨바꼭질3 {
+public class ING_Main_13549_숨바꼭질3 {
 	static int N;
 	static int K;
 	static boolean[] visited;
