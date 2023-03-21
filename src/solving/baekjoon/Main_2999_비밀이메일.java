@@ -8,7 +8,7 @@ import java.util.Scanner;
  * int[C][R]에서 for(R) {for(C)} 읽기
  */
 
-public class Main_비밀이메일 {
+public class Main_2999_비밀이메일 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

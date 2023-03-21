@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 
 
-public class Main_신기한소수 {
+public class Main_2023_신기한소수 {
 	public static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) {
 	

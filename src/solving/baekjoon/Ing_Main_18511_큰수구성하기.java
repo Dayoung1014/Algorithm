@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 // 런타임 에러 (NoSuchElement)
 
-public class Ing_Main_큰수구성하기 {
+public class Ing_Main_18511_큰수구성하기 {
 	static int N; static int len; static int K; 
 	static ArrayList<Integer> arr = new ArrayList<>();
 	static ArrayList<Integer> perArr = new ArrayList<>();

@@ -1,10 +1,10 @@
-package solving.swea.n3289;
+package solving.swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class Solution
+class Solution_3289_서로소집합 
 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;

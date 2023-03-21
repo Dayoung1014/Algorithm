@@ -1,7 +1,7 @@
-package solving.swea.n7964;
+package solving.swea;
 import java.util.Scanner;
 
-class Solution {
+class Solution_7964_부먹왕국의차원관문  {
 	public static void main(String args[]) throws Exception {
 	
 		Scanner sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package solving.swea.n7272;
+package solving.swea;
 
 /*
  * str1 str2 길이가 다르면 DIFF
@@ -9,7 +9,7 @@ package solving.swea.n7272;
 */
 import java.util.Scanner;
 
-class Solution {
+class Solution_7272_안경이없어  {
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();

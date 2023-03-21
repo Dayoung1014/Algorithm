@@ -13,7 +13,7 @@ import java.util.Scanner;
  * -> 모든 부분집합(공집합 제외) 구해서 |신맛-쓴맛| 절대값이 가장 작은거 구하기
  * */
 
-public class Main_도영이가만든맛있는음식 {
+public class Main_2961_도영이가만든맛있는음식 {
 	static int [] sour ;
 	static int [] bitter;
 	static int max=Integer.MAX_VALUE;

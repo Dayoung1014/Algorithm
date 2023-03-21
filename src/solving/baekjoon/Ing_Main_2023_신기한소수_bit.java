@@ -18,7 +18,7 @@ import java.util.Scanner;
  * */
 
 
-public class Ing_Main_신기한소수_bit {
+public class Ing_Main_2023_신기한소수_bit {
 	public static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) {
 	

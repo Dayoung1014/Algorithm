@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 만들 수 없다면 -1
  * */
 
-public class Main_설탕배달 {
+public class Main_2839_설탕배달 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt(); 

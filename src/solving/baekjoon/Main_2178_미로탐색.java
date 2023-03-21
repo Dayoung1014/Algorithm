@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * 인접 : 4방
  * */
 
-public class Main_미로탐색 {
+public class Main_2178_미로탐색 {
 	static int N;
 	static int M;
 	static int[][] map;

@@ -3,7 +3,7 @@ package solving.baekjoon;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main_괄호의값 {
+public class Main_2504_괄호의값 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

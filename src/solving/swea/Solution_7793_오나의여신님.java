@@ -1,4 +1,4 @@
-package solving.swea.n7793;
+package solving.swea;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * 악마가 1개라는 조건이 없으므로 틀렸음
  * */
 
-class Solution {
+class Solution_7793_오나의여신님 {
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;

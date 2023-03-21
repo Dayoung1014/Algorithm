@@ -1,8 +1,8 @@
-package solving.swea.n2007;
+package solving.swea;
 
 import java.util.Scanner;
 
-class Solution{
+class Solution_2007_패턴마디의길이 {
 	public static void main(String args[]) throws Exception{
 	
 	Scanner sc = new Scanner(System.in);

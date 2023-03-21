@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 최소한의 개수로 줄 때 몇개로 주는지
  * */
 
-public class Main_설탕배달_추가응용문제 {
+public class Main_2839_설탕배달_응용문제 {
 	static int[] coin = {500, 400, 100, 50, 10};
 	static int result = 0;
 	static int give = 800;

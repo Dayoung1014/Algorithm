@@ -2,7 +2,7 @@ package solving.baekjoon;
 
 import java.util.Scanner;
 
-public class Main_직사각형을만드는방법 {
+public class Main_8320_직사각형을만드는방법 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

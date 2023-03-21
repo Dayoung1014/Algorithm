@@ -3,7 +3,7 @@ package solving.baekjoon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main_블랙잭 {
+public class Main_2798_블랙잭 {
 	static int N;
 	static int M;
 	static int result;

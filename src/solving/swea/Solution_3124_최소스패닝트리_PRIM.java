@@ -1,4 +1,4 @@
-package solving.swea.n3124;
+package solving.swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-class Solution_PRIM {
+class Solution_3124_최소스패닝트리_PRIM {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;
 	static int V, E;

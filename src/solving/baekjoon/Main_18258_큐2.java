@@ -44,7 +44,7 @@ class MyQueue {
 	
 }
 
-public class Main_큐2 {
+public class Main_18258_큐2 {
 	public static void main(String[] args) throws IOException {
 		MyQueue queue = new MyQueue();
 	

@@ -1,4 +1,4 @@
-package solving.swea.n1952;
+package solving.swea;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-class  Solution{
+class  Solution_1952_수영장 {
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int T=sc.nextInt();

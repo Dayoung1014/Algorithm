@@ -1,4 +1,4 @@
-package solving.programmers.n12909;
+package solving.programmers;
 
 import java.util.Stack;
 
@@ -7,7 +7,7 @@ import java.util.Stack;
 // pop 할게 없으면 false
 // 끝났는데 stack 남아있으면 false
 
-class Solution {
+class Solution_12909 {
     boolean solution(String s) {
         boolean answer = true;
         

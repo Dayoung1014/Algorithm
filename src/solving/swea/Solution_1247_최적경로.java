@@ -1,4 +1,4 @@
-package solving.swea.n1247;
+package solving.swea;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_1247_최적경로 {
 	
 	static int [] output; // 뽑은 순열
 	static boolean[] visited; // 방문 여부

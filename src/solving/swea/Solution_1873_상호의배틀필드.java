@@ -1,4 +1,4 @@
-package solving.swea.n1873;
+package solving.swea;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +45,7 @@ N : 사용자 입력 개수 (동작 주어짐)
 
 import java.util.Scanner;
 
-class Solution
+class Solution_1873_상호의배틀필드 
 {
 	
 

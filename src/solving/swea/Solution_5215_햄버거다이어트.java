@@ -1,4 +1,4 @@
-package solving.swea.n5215;
+package solving.swea;
 /*
  * 주어진 것
  * - 햄버거 재료에 대한 점수
@@ -12,7 +12,7 @@ package solving.swea.n5215;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_5215_햄버거다이어트   {
 	static int maxScore;
 	static int kcalLimit;
 	

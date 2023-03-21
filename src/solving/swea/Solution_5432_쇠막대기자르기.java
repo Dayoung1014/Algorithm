@@ -1,4 +1,4 @@
-package solving.swea.n5432;
+package solving.swea;
 
 /*
  ===============Test case 1 통해 문제 이해===============
@@ -55,7 +55,7 @@ while 순회하며
 import java.util.Scanner;
 import java.util.Stack;
 
-class Solution {
+class Solution_5432_쇠막대기자르기 {
 	public static void main(String args[]) throws Exception {
 	
 		Scanner sc = new Scanner(System.in);

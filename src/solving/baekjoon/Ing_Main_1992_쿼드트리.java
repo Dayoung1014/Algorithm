@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 
-public class Ing_Main_쿼드트리 {
+public class Ing_Main_1992_쿼드트리 {
 	static int N;
 	static int[][] arr;
 	static StringBuilder sb = new StringBuilder();

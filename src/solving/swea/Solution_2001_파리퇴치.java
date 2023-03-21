@@ -1,4 +1,4 @@
-package solving.swea.n2001;
+package solving.swea;
 
 
 // https://swexpertacademy.com/main/solvingProblem/solvingProblem.do
@@ -13,7 +13,7 @@ package solving.swea.n2001;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_2001_파리퇴치 {
 	public static void main(String args[]) throws Exception {
 	
 		Scanner sc = new Scanner(System.in);

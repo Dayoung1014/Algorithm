@@ -1,4 +1,4 @@
-package solving.programmers.n42586;
+package solving.programmers;
 
 
 // while 돌면서 

@@ -16,7 +16,7 @@ import java.util.StringTokenizer;
  * */
 
 // Scanner 사용 시 메모리 초과 남
-public class Main_그림 {
+public class Main_1926_그림 {
 	static int n;
 	static int m;
 	static int[][] map;

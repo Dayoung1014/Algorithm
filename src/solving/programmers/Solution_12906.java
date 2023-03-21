@@ -1,4 +1,4 @@
-package solving.programmers.n12906;
+package solving.programmers;
 import java.util.*;
 
 // ArrayList로 풀기
@@ -17,7 +17,7 @@ import java.util.*;
 //}
 
 // Stack으로 풀기
-public class Solution {
+public class Solution_12906 {
     public Stack<Integer> solution(int []arr) {
         Stack<Integer> stack = new Stack<>();
         stack.add(arr[0]);

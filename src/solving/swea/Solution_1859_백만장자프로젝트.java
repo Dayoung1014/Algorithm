@@ -1,4 +1,4 @@
-package solving.swea.n1859;
+package solving.swea;
 
 import java.util.Scanner;
 
@@ -23,7 +23,7 @@ import java.util.Scanner;
 
 // int ~21억 ~ 21억
 
-class Solution
+class Solution_1859_백만장자프로젝트 
 {
 	public static void main(String args[]) throws Exception
 	{

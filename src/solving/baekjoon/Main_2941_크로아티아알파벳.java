@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main_크로아티아알파벳 {
+public class Main_2941_크로아티아알파벳 {
 	public static void main(String[] args) {
 		ArrayList<String> croatia = new ArrayList<>(Arrays.asList("c=", "c-","dz=", "d-", "lj", "nj", "s=", "z="));
 		

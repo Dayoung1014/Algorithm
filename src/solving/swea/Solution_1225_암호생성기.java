@@ -1,4 +1,4 @@
-package solving.swea.n1225;
+package solving.swea;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -18,7 +18,7 @@ import java.util.Queue;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_1225_암호생성 {
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int[] cycle = {1,2,3,4,5};

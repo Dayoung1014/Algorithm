@@ -1,4 +1,4 @@
-package solving.swea.n5644;
+package solving.swea;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -21,7 +21,7 @@ import java.util.Scanner;
  * 모든 사용자가 충전한 양의 합의 최대 구하기
  * */
 
-class Solution {
+class Solution_5644_무선충전  {
 	static boolean[][][] map;
 	static int[] dx = {0, -1, 0, 1, 0}; // 이동 X 상 우 하 좌
 	static int[] dy = {0, 0,1, 0, -1};

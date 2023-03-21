@@ -1,4 +1,4 @@
-package solving.swea.n1861;
+package solving.swea;
 /*
 * 이동하려는 방에 적힌 숫자가 현재 방에 적힌 숫자보다 정확히 1 더 커야 한다.
 
@@ -11,7 +11,7 @@ package solving.swea.n1861;
 
 import java.util.Scanner;
 
-class Solution
+class Solution_1861_정사각형방 
 {
     static int N;
     static int[][] map;

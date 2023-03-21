@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 0: 그냥 땅
  * */
 
-public class Main_유기농배추 {
+public class Main_1012_유기농배추 {
 	static int M;
 	static int N; 
 	static int[][] map;

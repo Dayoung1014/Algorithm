@@ -1,4 +1,4 @@
-package solving.swea.n7733;
+package solving.swea;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -28,7 +28,7 @@ import java.util.Queue;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_7733_치즈도둑  {
 	static int N;
 	static int[][] cheese;
 	static boolean[][] visited;

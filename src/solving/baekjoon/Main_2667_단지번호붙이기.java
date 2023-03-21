@@ -16,7 +16,7 @@ import java.util.Scanner;
  * 
  * */
 
-public class Main_단지번호붙이기 {
+public class Main_2667_단지번호붙이기 {
 	static int N;
 	static int[][] map;
 	static ArrayList<Integer> home;

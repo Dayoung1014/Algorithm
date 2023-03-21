@@ -1,4 +1,4 @@
-package solving.swea.n1289;
+package solving.swea;
 
 /*
  * 메모리 bit 중 하나를 골라 0인지 1인지 결정하면 해당 값이 메모리 끝까지 덮어씌워짐
@@ -10,7 +10,7 @@ package solving.swea.n1289;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_1289_원재의메모리복구하기  {
 	static char[] now; //현재 메모리 값
 	static char[] origin; //메모리 원래 값
 	static int cnt; //최소 수정 횟수

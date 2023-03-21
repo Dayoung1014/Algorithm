@@ -1,4 +1,4 @@
-package solving.swea.n1218;
+package solving.swea;
 
 
 /*
@@ -8,7 +8,7 @@ package solving.swea.n1218;
 import java.util.Scanner;
 import java.util.Stack;
 
-class Solution {
+class Solution_1218_괄호짝짓 {
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		

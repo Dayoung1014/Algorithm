@@ -14,7 +14,7 @@ import java.util.Scanner;
  * 
  * 1개 남았을 때 해당 값 접근 queue.peek()
  * */
-public class Main_카드2 {
+public class Main_2164_카드2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

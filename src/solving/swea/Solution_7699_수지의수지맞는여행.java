@@ -1,4 +1,4 @@
-package solving.swea.n7699;
+package solving.swea;
 
 /*
  * 섬 : 1행 1열 ~ R행 C열 (R*C)
@@ -18,7 +18,7 @@ package solving.swea.n7699;
 import java.util.Scanner;
 
 
-class Solution {
+class Solution_7699_수지의수지맞는여행  {
 	static int R;
 	static int C;
 	static char[][] map;

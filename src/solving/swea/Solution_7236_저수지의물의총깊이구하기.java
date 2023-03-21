@@ -1,4 +1,4 @@
-package solving.swea.n7236;
+package solving.swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -17,7 +17,7 @@ import java.util.StringTokenizer;
  * bfs 돌면서 구획이 == w일때 인접한 곳 체크하기 (8방)
  * */
 
-class Solution {
+class Solution_7236_저수지의물의총깊이구하기  {
 	static int N;
 	static char[][] map;
 	static boolean[][] v;

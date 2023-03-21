@@ -1,10 +1,10 @@
-package solving.programmers.n42584;
+package solving.programmers;
 
 
-class Solution { //가격이 떨어지지 않은 기간이 몇 초인지
+class Solution_42584 { //가격이 떨어지지 않은 기간이 몇 초인지
 	
 	public static void main(String[] args) {
-		Solution s = new Solution();
+		Solution_42584 s = new Solution_42584();
 		System.out.println(s.solution(new int[] {1, 2, 3, 2, 3}));
 		
 	}

@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 
  * */
 
-public class Main_섬의개수 {
+public class Main_4963_섬의개수 {
 	static int W;
 	static int H;
 	static int[][] map;

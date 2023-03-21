@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 
  * */
 
-public class Main_백설공주와일곱난쟁이 {
+public class Main_3040_백설공주와일곱난쟁이 {
 	static void combi(int[] select, int[] arr, int count, int idx, int sum) { //선택한 배열, 선택한 갯수, 볼 idx, 현재 합
 		if(count==7) {
 			if(sum == 100) {

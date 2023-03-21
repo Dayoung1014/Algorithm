@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main_상범빌딩 {
+public class Main_6593_상범빌딩 {
     static int L, R, C;
     static char[][][] building;
     static int[] startIdx = new int[3];

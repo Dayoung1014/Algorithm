@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  *
  *  */
 
-public class Main_탑 {
+public class Main_2493_탑 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));

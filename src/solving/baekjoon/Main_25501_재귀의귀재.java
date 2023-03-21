@@ -6,7 +6,7 @@ import java.util.Scanner;
 // 함수 반환값(팬린드롬이면 1 / 아니면 0) 
 // recursion 함수의 호출 횟수
 
-public class Main_재귀의귀재 {
+public class Main_25501_재귀의귀재 {
 	static int cnt;
 	
 	public static int recursion(String s, int left, int right) {

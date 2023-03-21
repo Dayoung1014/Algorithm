@@ -1,4 +1,4 @@
-package solving.swea.n4012;
+package solving.swea;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ import java.util.Scanner;
  * */
 
 
-class Solution{
+class Solution_4012_요리사 {
 	static int N;
 	static int[] num; //식재료 번호
 	static int [][] table; //식재료 맛 테이블

@@ -1,4 +1,4 @@
-package solving.swea.n1949;
+package solving.swea;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,7 +14,7 @@ import java.util.Scanner;
  * - 딱 한곳은 최대 K 깊이만큼 지형을 깎을 수 있음
  * 
  * */
-class Solution {
+class Solution_1949_등산로조성  {
 	static int N;
 	static int K; 
 	static int[][] map;

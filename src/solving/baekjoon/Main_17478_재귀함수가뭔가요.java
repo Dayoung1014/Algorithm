@@ -2,7 +2,7 @@ package solving.baekjoon;
 
 import java.util.Scanner;
 
-public class Main_재귀함수가뭔가요 {
+public class Main_17478_재귀함수가뭔가요 {
 
 	static String [] ment = {"\"재귀함수가 뭔가요?\""
 			,"\"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어."
@@ -16,23 +16,23 @@ public class Main_재귀함수가뭔가요 {
 		Scanner sc = new Scanner(System.in); 
 		N = sc.nextInt(); 
 		System.out.println("어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.");
-		recursion(0);
+		//recursion(0);
 		
 	}
-	public static void recursion(int i) {
-		if(i==N) {
-			System.out.println("____".repeat(i)+ment[0]);
-			System.out.println("____".repeat(i)+answer);
-			System.out.println("____".repeat(i)+finish);
-			return;			
-		}
-		
-		for(String m : ment) {
-			System.out.println("____".repeat(i)+m);
-		}
-		recursion(i+1);
-		System.out.println("____".repeat(i)+finish);
-	}
+//	public static void recursion(int i) {
+//		if(i==N) {
+//			System.out.println("____".repeat(i)+ment[0]);
+//			System.out.println("____".repeat(i)+answer);
+//			System.out.println("____".repeat(i)+finish);
+//			return;			
+//		}
+//		
+//		for(String m : ment) {
+//			System.out.println("____".repeat(i)+m);
+//		}
+//		recursion(i+1);
+//		System.out.println("____".repeat(i)+finish);
+//	}
 
 }
 

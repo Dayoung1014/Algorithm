@@ -1,7 +1,7 @@
-package solving.swea.n1979;
+package solving.swea;
 
 import java.util.Scanner;
-class Solution {
+class Solution_1979_어디에단어가들어갈수있을까  {
 	public static void main(String args[]) 
 	{
 		Scanner sc = new Scanner(System.in);

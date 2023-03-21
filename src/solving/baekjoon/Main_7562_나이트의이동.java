@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 // 나이트 이동 8곳 
 // 몇 번 움직이면 이 칸으로 이동 가능한가
 
-public class Main_나이트의이동 {
+public class Main_7562_나이트의이동 {
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;

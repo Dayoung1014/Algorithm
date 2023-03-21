@@ -1,4 +1,4 @@
-package solving.swea.n6808;
+package solving.swea;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +21,7 @@ import java.util.Scanner;
  * 
  * */
 
-class Solution{
+class Solution_6808_규영이와인영이의카드게임 {
 	static int[] card1; //규영이 카드 (순서 고정)
 	static int[] card2; // 인영이 카드 
 	static boolean[] cards;

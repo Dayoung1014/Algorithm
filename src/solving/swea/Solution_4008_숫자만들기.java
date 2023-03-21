@@ -1,4 +1,4 @@
-package solving.swea.n4008;
+package solving.swea;
 
 /*
  * N개의 숫자가 적혀 있는 게임 판
@@ -11,7 +11,7 @@ package solving.swea.n4008;
 
 import java.util.Scanner;
 
-class Solution {
+class Solution_4008_숫자만들기  {
 	static int N;
 	static int[] cnt;
 	static int[] nums;

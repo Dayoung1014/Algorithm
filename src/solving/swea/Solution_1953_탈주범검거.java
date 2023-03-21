@@ -1,4 +1,4 @@
-package solving.swea.n1953;
+package solving.swea;
 
 /*
 * 맨홀 뚜껑을 통해 지하터널로 들어감
@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Solution {
+class Solution_1953_탈주범검거 {
 
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));

@@ -1,4 +1,4 @@
-package solving.swea.n1228;
+package solving.swea;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
-class  Solution{
+class  Solution_1228_암호문1{
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int T=10; //테스트케이스 개수

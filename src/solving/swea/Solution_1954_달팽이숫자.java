@@ -1,4 +1,4 @@
-package solving.swea.n1954;
+package solving.swea;
 
 /*
  * 달팽이 1~N*N까지의 숫자가 시계 방향
@@ -8,7 +8,7 @@ package solving.swea.n1954;
 
 import java.util.Scanner;
 
-class Solution{
+class Solution_1954_달팽이숫자 {
 	static int[][] arr;
 	static int[] d1 = {0, 1, 0, -1}; //상하
 	static int[] d2= {1, 0, -1, 0}; //좌우

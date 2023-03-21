@@ -1,13 +1,13 @@
-package solving.programmers.n42587;
+package solving.programmers;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 
 
-class Solution {
+class Solution_42587 {
 	public static void main(String[] args) {
-		Solution s = new Solution();
+		Solution_42587 s = new Solution_42587();
 		s.solution(new int[] {1, 1, 9, 1, 1, 1}, 0);
 		
 	}

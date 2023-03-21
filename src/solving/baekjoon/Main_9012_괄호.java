@@ -3,7 +3,7 @@ package solving.baekjoon;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main_괄호 {
+public class Main_9012_괄호 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

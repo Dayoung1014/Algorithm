@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  * 1,1 포함해서
  * */
 
-public class Main_알파벳 {
+public class Main_1987_알파벳 {
 	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;

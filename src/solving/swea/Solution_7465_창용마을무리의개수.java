@@ -1,4 +1,4 @@
-package solving.swea.n7465;
+package solving.swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 
-class Solution {
+class Solution_7465_창용마을무리의개수  {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st;

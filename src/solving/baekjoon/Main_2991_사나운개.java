@@ -2,7 +2,7 @@ package solving.baekjoon;
 
 import java.util.Scanner;
 
-public class Main_사나운개 {
+public class Main_2991_사나운개 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

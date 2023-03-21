@@ -1,4 +1,4 @@
-package solving.swea.n1952;
+package solving.swea;
 
 /*
  * 1년 동안 각 달의 이용 계획 수립 후 가장 적은 비용으로 수영장 이용하고 싶음
@@ -19,7 +19,7 @@ package solving.swea.n1952;
 
 import java.util.Scanner;
 
-class Solution2 {
+class Solution_1952_수영장2 {
 	static int day;
 	static int month1;
 	static int month3;
