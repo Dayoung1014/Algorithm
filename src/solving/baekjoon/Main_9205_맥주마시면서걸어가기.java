@@ -59,6 +59,7 @@ public class Main_9205_맥주마시면서걸어가기 {
 				finish=true;
 				return;
 			}
+
 			
 			for(int i=1; i<=n; i++) { // 편의점 확인
 				if(visited[i]) continue; //이미 방문한 편의점은 무시
