@@ -3,8 +3,7 @@ package solving.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 /* 
@@ -24,7 +23,7 @@ public class ING_Main_13549_숨바꼭질3 {
 	static int K;
 	static boolean[] visited;
 	
-	static class Point {
+	static class Point implements Comparable<Point>{
 		int p;
 		int time;
 
@@ -33,44 +32,58 @@ public class ING_Main_13549_숨바꼭질3 {
 			this.p = p;
 			this.time = time;
 		}
-		
+
+
+		@Override
+		public int compareTo(Point o) {
+			return this.time-o.time;
+		}
+//
+//		@Override
+//		public String toString() {
+//			return "Point{" +
+//					"p=" + p +
+//					", time=" + time +
+//					'}';
+//		}
 	}
 	
 	static void bfs() {
-		Queue<Point> q = new LinkedList<>();
+		PriorityQueue<Point> q = new PriorityQueue<>();
 		q.offer(new Point(N, 0));
-		visited[N] = true;
+		//visited[N] = true;
 		
 		while(!q.isEmpty()) {
+			//System.out.println();
+			//System.out.println();
+			//System.out.println(q.toString());
 			Point point = q.poll();
 
-			System.out.println(point.p + " "+point.time);
+			//System.out.println(point.p + " "+point.time);
 			if(point.p == K) {
 				System.out.println(point.time);
-				break;
+				return;
 			}
-			
+
+			if(check(point.p*2)) {
+				q.offer(new Point(point.p*2, point.time));
+				//visited[point.p*2] = true;
+			}
+
 			if(check(point.p-1)) {
 				q.offer(new Point(point.p-1, point.time+1));
-				visited[point.p-1] = true;
+				//visited[point.p-1] = true;
 			}
 			
 			if(check(point.p+1)) {
 				q.offer(new Point(point.p+1, point.time+1));
-				visited[point.p+1] = true;
+				//visited[point.p+1] = true;
 			}
-			
-			
-			if(check(point.p*2)) {
-				q.offer(new Point(point.p*2, point.time));
-				visited[point.p*2] = true;
-			}
-			
 		}
 	}
 	
 	static boolean check(int n) {
-		return (n>=0 && n <= 100000 && !visited[n]);
+		return (n>=0 && n <= 100000); // && !visited[n]
 	}
 	
 	public static void main(String[] args) throws IOException {
