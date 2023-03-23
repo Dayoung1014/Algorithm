@@ -64,7 +64,6 @@ public class BFS_덩어리개수 {
 	
 	private static void bfs(int r, int c) {
 		Queue<Point> Q = new LinkedList();
-		//boolean[][] v = new boolean[N][M];
 		
 		checked[r][c] = true;
 		Q.offer(new Point(r, c));
