@@ -1,6 +1,5 @@
 package solving.baekjoon;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -17,35 +16,60 @@ import java.util.*;
 
 
 
-public class Ing_Main_1260_DFS와BFS {
-	
-//	static class Node   {
-//		int vertex;
-//		Node link;
-//		
-//		public Node(int vertex, Node node) {
-//			super();
-//			this.vertex = vertex;
-//			this.link = node;
-//		}
-//	}
-
-	
+public class Main_1260_DFS와BFS {
     static int N, M, V;
-    static PriorityQueue<Integer>[] graph;
+    static ArrayList<Integer>[] graph;
     
+    static StringBuilder dfs_sb = new StringBuilder();
+    static StringBuilder bfs_sb = new StringBuilder();
+    
+	// 깊이 우선 탐색
+	static boolean[] visited;
+	static void dfs(int now) {
+		if(visited[now]) return;
+	
+		visited[now] = true;
+		dfs_sb.append(now+" ");
+		
+		for (int i = 0; i < graph[now].size(); i++) {
+			int next = graph[now].get(i);
+			dfs(next);
+		}
+	}
+	
+	// 너비 우선 탐색
+	static void bfs(int start) {
+		Queue<Integer> q = new ArrayDeque<>();
+		boolean[] v = new boolean[N+1]; // 정점 개수 만큼
+		
+		v[start] = true;
+		q.offer(start);
+		
+		int cur = 0;
+		while(!q.isEmpty()) {
+			cur = q.poll();
+			bfs_sb.append(cur+" ");
+			for (int i = 0; i < graph[cur].size(); i++) {
+				int next = graph[cur].get(i);
+				if(v[next]) continue;
+				v[next] = true;
+				q.offer(next);
+			}
+		}
+	}
+
 	public static void main(String args[]) throws Exception {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-	    BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+	    
 	    StringTokenizer st;
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken())+1; //정점의 개수 (0비우고)
 		M = Integer.parseInt(st.nextToken());  //간선의 개수
 		V = Integer.parseInt(st.nextToken()); //탐색을 시작할 정점 번호
 		
-		graph = new PriorityQueue[N];
+		graph = new ArrayList[N];
 		for (int i = 0; i < N; i++) {
-			graph[i] = new PriorityQueue();
+			graph[i] = new ArrayList();
 		}
 		
 		for (int i = 0; i < M; i++) {
@@ -57,42 +81,16 @@ public class Ing_Main_1260_DFS와BFS {
 		}
 
 		for (int i = 0; i < N; i++) {
-			System.out.println(graph[i].toString());
+			Collections.sort(graph[i]);
 		}
 		
 		visited = new boolean[N];
+		dfs(V);
+		bfs(V);
+		System.out.println(dfs_sb);
+		System.out.println(bfs_sb);
 	}
 	 
-	// 깊이 우선 탐색
-	static boolean[] visited;
-	static void dfs(int now) {
-		
-	}
-	
-//	
-//	static void bfs(int start) {
-//		Queue<Integer> q = new ArrayDeque<>();
-//		boolean[] v = new boolean[N+1]; // 정점 개수 만큼
-//		
-//		v[start] = true;
-//		q.offer(start);
-//		
-//		int cur = 0;
-//		while(!q.isEmpty()) {
-//			cur = q.poll();
-//			System.out.print(cur + " ");
-//			
-//			for(Node tmp=graph[cur]; tmp!=null; tmp=tmp.link) {
-//				if(!v[tmp.vertex]) {
-//					v[tmp.vertex] = true;
-//					q.offer(tmp.vertex);
-//				}
-//				System.out.println(q);
-//			}
-//		}
-//		
-//	}
 
 
 }
-
