@@ -3,6 +3,8 @@ package solving.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /*
@@ -22,89 +24,98 @@ import java.util.StringTokenizer;
  * dfs로 모든 경로 완탐하면서 하나라도 성공하면 happy
  * 다 돌았는데 못한다면 sad
  * 
- * 현재 위치에서 가까운 순으로 가서 맥주 채우면 됨...
- * 
- * 틀린 코드임
+ * 현재 위치에서 가까운 순으로 가서 맥주 채우면 됨
  * */
 
-public class Main_9205_맥주마시면서걸어가기 {	
-	static int store_cnt;
-	static int[] start, end;
-	static int[][] store;
+public class Main_9205_맥주마시면서걸어가기 {
 	
-	static int beer;
-	
-	static boolean[] visited;
-	
-	static boolean finish;
-	
-	static void move(int n) { //현재 위치
-		//System.out.println(n+"방문");
-		visited[n] = true; //현재 위치 방문 완료
-		beer = 20; //맥주 충전
-
-		if(check(store[n][0], store[n][1])) { //현재 위치에서 end로 갈 수 있는 경우
-			finish=true;
-			return;
-		}
+	static class Point {
+		int x, y;
+		int beer;
 		
-		int near = Integer.MAX_VALUE; //현재 위치에서 가까운 편의점 번호 저장
-		int nearDist = 0; //현재 위치에서 가까운 편의점과의 거리
-		for (int i = 0; i < store_cnt+1; i++) {
-			//System.out.println(i);
-			if(visited[i]) continue;
-			int dist = Math.abs(store[i][0]-store[n][0]) + Math.abs(store[i][1]-store[n][1]); 
-			//System.out.println(i+"번째 편의점 "+dist);
-			if(near > dist) {  //몇 번째 store인지 저장(가까운 store저장)
-				near=i;
-				nearDist = dist;
-			}
+		public Point(int x, int y, int beer) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.beer = beer;
 		}
-		
-		beer -= (int) Math.ceil(nearDist/50);
-		if(beer < 0) { //가장 가까운 편의점 방문 전 맥주 다 떨어지는 경우 
-			finish = false;
-			return;
-		} 
-		move(near); //가장 가까운 편의점을 방문하기
 	}
 	
-	static boolean check(int nowX, int nowY) { //현재 위치에서 현재 맥주로 도착 가능한지
-		int dist = end[0]-nowX + end[1]-nowY;
-		if(dist/50 <= beer) return true;
+	static int n; //편의점 개수
+	static int[][] store;
+	static boolean finish;
+
+	static boolean[] visited;
+
+	static void bfs() { 
+		Queue<Point> q = new LinkedList<>();
+		visited[0] = true;
+		q.add(new Point(store[0][0], store[0][1], 20));
+		
+		while(!q.isEmpty()) {
+			Point p = q.poll();
+			//System.out.println("현재 위치 : "+p.x+" "+p.y);
+			if(check(p)) { // 현재 위치에서 바로 방문 가능하다면
+				finish=true;
+				return;
+			}
+			
+			for(int i=1; i<=n; i++) { // 편의점 확인
+				if(visited[i]) continue; //이미 방문한 편의점은 무시
+				int next_beer = drink(p, store[i][0], store[i][1]); //다음 편의점 방문했을 때 남는 맥주 수 계산
+				if(next_beer < 0) continue; //맥주가 부족하다면 해당 편의점은 방문 X
+				
+				// 가능하다면 해당 편의점 방문, 큐 추가
+				visited[i] = true;
+				q.add(new Point(store[i][0], store[i][1], 20));
+
+				if(visited[n+1]) {
+					finish=true;
+					return;
+				}
+			}
+		}
+	}
+
+	static int drink(Point now, int nextX, int nextY) { // 현재에서 다음 편의점 방문 시 까지 남는 맥주 수 계산
+		int dist = Math.abs(nextX - now.x) + Math.abs(nextY - now.y) ;
+		return now.beer - (int)Math.ceil(dist/50);
+	}
+
+	static boolean check(Point now) { //현재 위치에서 락페로 도착 가능한지
+		int dist = Math.abs(store[n+1][0] - now.x) + Math.abs(store[n+1][1] - now.y) ;
+		//System.out.println(dist + " " + dist/50.0 + " "+Math.ceil(dist/50.0));
+		if(Math.ceil(dist/50.0) <= now.beer) return true;
 		return false;
 	}
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
 		
 		int T = Integer.parseInt(br.readLine());
 		
 		for (int test_case = 0; test_case < T; test_case++) {
-			beer = 20;
+			n = Integer.parseInt(br.readLine()); //편의점 개수
 			
-			store_cnt = Integer.parseInt(br.readLine()); //편의점 개수
-			
-			store = new int[store_cnt+1][2];
-			
-			for (int i = 0; i < store_cnt+1; i++) {
+			store = new int[n+2][2]; // 집 - 편의점들 - 락페
+			visited = new boolean[n+2];
+
+			for (int i = 0; i < n+2; i++) {
 				st = new StringTokenizer(br.readLine());
 				store[i][0] = Integer.parseInt(st.nextToken()); // x좌표
 				store[i][1] = Integer.parseInt(st.nextToken()); // y좌표
 			}
-			
-			st = new StringTokenizer(br.readLine());
-			end = new int[]{Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
-			
+		
 	
 			finish = false;
-			visited = new boolean[store_cnt+1];
-			move(0);
+			bfs();
 			
-			if(finish) System.out.println("happy"); 
-			else System.out.println("sad"); 
+			if(finish) sb.append("happy\n");
+			else sb.append("sad\n");
 		}
+		System.out.println(sb);
 	}
 
 }
