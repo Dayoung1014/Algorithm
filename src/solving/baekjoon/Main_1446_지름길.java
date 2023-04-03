@@ -1,87 +1,76 @@
 package solving.baekjoon;
 
+/*
+* 고속도로의 지름길 : 일방통행 -> 단방향 그래프 사용
+* 고속도로 : 역주행 불가
+* 지름길 없으면 그냥 고속도로로 가야함
+* */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-/*
- * D길이의 고속도로의 지름길은 일방통행, 역주행 불가(단방향 그래프)
- * 지름길이 없으면 그냥 고속도로로 가야해서 해당 거리만큼 가야함
- * 운전해야하는 최솟값 구하기
- * */
-
 public class Main_1446_지름길 {
+    static int N, D;
+    
+    static class Route implements Comparable<Route>{
+        int start, end, len;
 
-	static class Node implements Comparable<Node>{
-		int e, c;
-	
-		public Node(int e, int c) {
-			this.e = e;
-			this.c = c;
-		}
-		
-		@Override
-		public int compareTo(Node o) {
-			return Integer.compare(this.c, o.c);
-		}
-	}
-	
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		
-		st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken()); //1~12
-		int D = Integer.parseInt(st.nextToken());
-		ArrayList<Node>[] graph = new ArrayList[10001]; //0비우기 위해
-		
-		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList();
-		}
-		
-		for (int i = 0; i < N; i++) {
-			st = new StringTokenizer(br.readLine());
-			int start = Integer.parseInt(st.nextToken()); //시작 위치 
-			int end = Integer.parseInt(st.nextToken()); //종료 위치
-			int cost = Integer.parseInt(st.nextToken()); //길이
-			
-			graph[start].add(new Node(end, cost));
-		}
-		
-		int[] dist = new int[10001]; //가면서 최솟값 갱신	
-		boolean[] v = new boolean[10001];
-		
-		Arrays.fill(dist, Integer.MAX_VALUE);
-		dist[0] = 0;
-		
-		PriorityQueue<Node> Q = new PriorityQueue<>();
-		Q.add(new Node(0, 0));
+        public Route(int start, int end, int len) {
+            this.start = start;
+            this.end = end;
+            this.len = len;
+        }
 
-		while(!Q.isEmpty()) {
-			Node p = Q.poll();
-			int minIdx = p.e; 
-			
-			v[minIdx] = true;
-			
-			for(Node next : graph[minIdx]) {
-				if(!v[next.e]&&dist[next.e]>dist[minIdx]+next.c) {
-					dist[next.e]=dist[minIdx]+next.c;
-					Q.add(new Node(next.e,dist[next.e]));
-				}
-			}	
-		}
-		
-		System.out.println(Arrays.toString(dist));
-		
-		// 다익스트라 돌면서 지름길 최솟값만 dist에 저장
-		// dist 도착점의 값이 있다면 그 값이 최소값
-		// 다른 지점의 값+ 그 지점과의 거리차
-		
-		
-	}
+        @Override
+        public int compareTo(Route o) {
+            return this.start-o.start;
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken()); //지름길 개수
+        D = Integer.parseInt(st.nextToken()); //고속도로의 길이
+
+        PriorityQueue<Route> q = new PriorityQueue<>();
+        for (int i = 0; i < N; i++) {
+            st = new StringTokenizer(br.readLine());
+            int s = Integer.parseInt(st.nextToken()); //지름길 시작 위치
+            int e = Integer.parseInt(st.nextToken()); //지름길 도착 위치
+            int l = Integer.parseInt(st.nextToken()); //지름길 길이
+            q.add(new Route(s, e, l));
+        }
+
+        int now = 0;
+        int[] dist = new int[10001];
+        Arrays.fill(dist, 10001);
+        dist[0] = 0;
+
+        //다익스트라
+        while(now < D) {
+            while(!q.isEmpty() && q.peek().start <= now) {
+                Route r = q.poll(); //지름길 시작점이 현재 위치보다 작거나 같은 것 뽑아옴
+                if(r.start == now) { //지름길 시작점이 현재 위치와 같다면
+                    // dist[지름길 도착점] : 아래 중 작은 값 저장
+                    // 현재에서 + 지름길 사용 길이
+                    // 지름길 도착점에 저장된 값
+                    dist[r.end] = Math.min(dist[now]+r.len, dist[r.end]);
+                }
+            }
+            // dist[now+1] : 아래 중 작은 값 저장
+            // dist[now+1] 위치에 저장되어 있는 값
+            // 현재에서 그냥 1 이동한 값
+            dist[now + 1] = Math.min(dist[now+1], dist[now]+1);
+            now++; //현재 위치 1 이동
+        }
+
+        System.out.println(dist[D]);
+    }
+
 
 }
