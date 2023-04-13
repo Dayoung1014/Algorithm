@@ -16,8 +16,8 @@ import java.util.StringTokenizer;
 public class Main_16918_봄버맨 {
 	static int R, C, N, time;
 	static Pos[][] map;
-	static int[] dr = {0, -1, 1, 0, 0};
-	static int[] dc = {0, 0, 0, -1, 1};
+	static int[] dr = {-1, 1, 0, 0};
+	static int[] dc = {0, 0, -1, 1};
 	
 	static class Pos{
 		int start;
@@ -63,19 +63,25 @@ public class Main_16918_봄버맨 {
 				for (int i = 0; i < R; i++) {
 					for (int j = 0; j < C; j++) {
 						if(map[i][j].isBomb && map[i][j].start+3==time) {
-							list.add(new int[] {i, j});
+							map[i][j] = new Pos(0, false);
+							for (int d = 0; d < 4; d++) {
+								int nr = i +dr[d];
+								int nc =j +dc[d];
+								if(nr<0 || nc<0 || nr>=R || nc>=C  || map[nr][nc].start+3==time) continue;
+								map[nr][nc] = new Pos(0, false);
+							}
 						}
 					}
 				}
 				
-				for(int[] arr : list) {
-					for (int d = 0; d < 5; d++) {
-						int nr = arr[0]+dr[d];
-						int nc = arr[1]+dc[d];
-						if(nr<0 || nc<0 || nr>=R || nc>=C ) continue;
-						map[nr][nc] = new Pos(0, false);
-					}
-				}
+//				for(int[] arr : list) {
+//					for (int d = 0; d < 5; d++) {
+//						int nr = arr[0]+dr[d];
+//						int nc = arr[1]+dc[d];
+//						if(nr<0 || nc<0 || nr>=R || nc>=C ) continue;
+//						map[nr][nc] = new Pos(0, false);
+//					}
+//				}
 				
 			}
 		}
