@@ -29,6 +29,8 @@ import java.util.StringTokenizer;
  * 		-> 다시 반시계 회전... 위 반복
  * 
  * 작동 멈출 때 까지 몇 칸 청소할수 있는지 구해라
+ *
+ * 반례 테케 : https://www.acmicpc.net/board/view/72795
  * */
 
 
@@ -49,12 +51,12 @@ public class Main_14503_로봇청소기 {
 	// 빈칸 청소 유무 -> 방문 배열로 해결
 	
 	static class Point {
-		int r, c;
+		int r, c, d;
 
-		public Point(int r, int c) {
-			super();
+		public Point(int r, int c, int d) {
 			this.r = r;
 			this.c = c;
+			this.d = d;
 		}
 	}
 	
@@ -64,72 +66,77 @@ public class Main_14503_로봇청소기 {
 		
 		v[start[0]][start[1]] = true; //방문하며 청소했다고 침
 		clean++; //시작점 청소
-		q.add(new Point(start[0],start[1]));
+		q.add(new Point(start[0],start[1], d));
 		
 		while(!q.isEmpty()) {
+			//if(clean==10) return;
 			Point p = q.poll();
 			System.out.println();
-			System.out.println(p.r+ " "+ p.c +" "+v[p.r][p.c]);
+			//System.out.println(p.r+ " "+ p.c +" "+v[p.r][p.c]);
 			boolean exist = false; //청소할 방이 존재하는가 
 			// 4방 청소 확인
 			
 			out:
-			for (int next = d; next < d+4; next++) {
-				next = next%4;
+			for (int n = 0; n <4 ; n++) {
+				//next = next%4;
+				int next = p.d - n;
+				if(next < 0) next = 4 + next;
 				int nr = p.r + dr[next];
 				int nc = p.c + dc[next];
-				System.out.println("다음 위치 " +nr + " "+nc);
-				System.out.println("이동 가능 여부 "+check(nr, nc));
+				//System.out.println("다음 위치 " +nr + " "+nc);
+				//System.out.println("이동 가능 여부 "+check(nr, nc));
 				if(check(nr, nc)) {
 					exist = true;
-					d = next; //방향 전환
-					System.out.println("방향 전환 : " + d);
 					v[nr][nc] = true; //방문 후 청소
 					clean++; // 청소 완료
-					q.add(new Point(nr,nc));
+					q.add(new Point(nr,nc, next));
+					System.out.println(nr + " "+nc + " 청소" + " "+clean);
 					break out;
 				}
 				
 			}
-			
-			
+
 			// 4방을 다 청소할 수 없다면 (벽이거나 이미 완료해서)
-			if(!exist) { 
+			if(!exist) {
+				System.out.println("후진합니다!!!!!");
 				// -> 방향 유지한채 후진 후 1로 돌아감
 				// -> 후진 하려 했는데 벽인 경우 작동 멈춤
 				int nr = p.r;
 				int nc = p.c;
-				
+				System.out.println(p.r + " "+p.c + " "+p.d);
 				// d : 북 동 남 서
-				switch (d) {
+				switch (p.d) {
 				case 0: { // 아래로 한 칸 
-					nc++;
-					break;
-					}
-				case 1: { // 왼쪽으로 한 칸
-					nr--;
-					break;
-					}
-				case 2: { // 위로 한 칸 
-					nc--;
-					break;
-					}
-				case 3: { // 오른쪽으로 
 					nr++;
 					break;
 					}
+				case 1: { // 왼쪽으로 한 칸
+					nc--;
+					break;
+					}
+				case 2: { // 위로 한 칸 
+					nr--;
+					break;
+					}
+				case 3: { // 오른쪽으로 
+					nc++;
+					break;
+					}
 				}
-				
 				if(back(nr, nc)) { //후진 가능한 경우
-					if(! v[nr][nc]) clean++;
-					
-					v[nr][nc] = true; //방문 후 청소
-					q.add(new Point(nr,nc));
+					System.out.println(nr + " "+ nc + "후진 성공");
+					if(! v[nr][nc]) {
+						clean++;
+						v[nr][nc] = true; //방문 후 청소
+						System.out.println(nr + " "+nc + " 후진 후 청소" + " "+clean);
+					}
+					q.add(new Point(nr, nc, p.d));
 				}
 				else { // 작동 멈추기
 					return;
 				}
 			}
+			print();
 		}
 	}
 
@@ -141,7 +148,12 @@ public class Main_14503_로봇청소기 {
 		if(nr < 0 || nc < 0 || nr >= N || nc >= M || map[nr][nc] == 1) return false;
 		else return true;
 	}
-	
+
+	static void print() {
+		for (int i = 0; i < N; i++) {
+			System.out.println(Arrays.toString(v[i]));
+		}
+	}
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
