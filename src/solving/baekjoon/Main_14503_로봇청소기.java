@@ -31,6 +31,8 @@ import java.util.StringTokenizer;
  * 작동 멈출 때 까지 몇 칸 청소할수 있는지 구해라
  *
  * 반례 테케 : https://www.acmicpc.net/board/view/72795
+ *
+ * dfs로 변경하기
  * */
 
 
@@ -125,11 +127,11 @@ public class Main_14503_로봇청소기 {
 				}
 				if(back(nr, nc)) { //후진 가능한 경우
 					System.out.println(nr + " "+ nc + "후진 성공");
-					if(! v[nr][nc]) {
-						clean++;
-						v[nr][nc] = true; //방문 후 청소
-						System.out.println(nr + " "+nc + " 후진 후 청소" + " "+clean);
-					}
+//					if(! v[nr][nc]) {
+//						//clean++;
+//						v[nr][nc] = true; //방문 후 청소
+//						System.out.println(nr + " "+nc + " 후진 후 청소" + " "+clean);
+//					}
 					q.add(new Point(nr, nc, p.d));
 				}
 				else { // 작동 멈추기
