@@ -19,6 +19,10 @@ import java.util.StringTokenizer;
  * 
  * 1. bfs : 시작점 하나 정하고 모든 육지를 최단거리로 방문해서 가장 긴 거리 갱신 
  * 2. 시작점을 모든 육지로 해서 bfs 다 돌려보기
+ * 
+ * algorithm : bfs
+ * start time : 23.05.04 11:40
+ * finish time : 23.05.04 11:54
  * */
 
 public class Main_2589_보물섬 {
