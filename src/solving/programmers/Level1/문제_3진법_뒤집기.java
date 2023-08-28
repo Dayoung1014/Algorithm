@@ -1,5 +1,7 @@
 package solving.programmers.Level1;
 
+import java.util.ArrayList;
+
 public class 문제_3진법_뒤집기 {
     public int solution(int n) {
         int answer = 0;
