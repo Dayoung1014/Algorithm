@@ -10,19 +10,11 @@ public class 운동_1956 {
     static int V, E;
     static int[][] graph;
     static void floydWarsall() {
-        int dist[][] = new int[V][V];
-        for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                if(graph[i][j] == 0 || i==j) dist[i][j] = Integer.MAX_VALUE; //경로가 없는 곳
-                else dist[i][j] = graph[i][j];
-            }
-        }
-
         for (int start = 0; start < V; start++) {
             for (int i = 0; i < V; i++) {
                 for (int j = 0; j < V; j++) {
-                    if(dist[i][start] != Integer.MAX_VALUE && dist[start][j] != Integer.MAX_VALUE) {
-                        dist[i][j] = Math.min(dist[i][j], dist[i][start]+dist[start][j]); //최단 거리 갱신
+                    if(graph[i][start] != Integer.MAX_VALUE && graph[start][j] != Integer.MAX_VALUE) {
+                        graph[i][j] = Math.min(graph[i][j], graph[i][start]+graph[start][j]); //최단 거리 갱신
                     }
                 }
             }
@@ -30,8 +22,8 @@ public class 운동_1956 {
 
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < V; i++) {
-            if(dist[i][i]==Integer.MAX_VALUE) continue;
-            min = Math.min(min, dist[i][i]);
+            if(graph[i][i]==Integer.MAX_VALUE) continue;
+            min = Math.min(min, graph[i][i]);
         }
 
         if(min==Integer.MAX_VALUE) System.out.println(-1);
@@ -39,8 +31,6 @@ public class 운동_1956 {
 
     }
     public static void main(String[] args) throws IOException {
-
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
@@ -49,6 +39,10 @@ public class 운동_1956 {
         E = Integer.parseInt(st.nextToken());
         
         graph = new int[V][V];
+        for (int i = 0; i < V; i++) {
+            Arrays.fill(graph[i], Integer.MAX_VALUE);
+        }
+
         for (int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken())-1;
